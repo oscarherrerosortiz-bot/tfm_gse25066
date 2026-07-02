@@ -6,7 +6,7 @@ la respuesta patológica completa (`pCR`) frente a enfermedad residual (`RD`) tr
 quimioterapia neoadyuvante en cáncer de mama.
 
 Los datos proceden del estudio público
-[GSE25066](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE25066) medido con la
+[GSE25066](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE25066), medido con la
 plataforma Affymetrix Human Genome U133A Array
 [GPL96](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GPL96).
 
@@ -32,13 +32,19 @@ tfm_gse25066/
     └── 03c_probe_stability_analysis.R
 ```
 
-Los datos, los informes, las tablas de resultados y las figuras no se incluyen: los datos
-deben añadirse manualmente (ver más abajo) y las salidas se generan al ejecutar los scripts.
+Los datos, los informes, las tablas de resultados y las figuras no se incluyen: los datos se
+descargan al ejecutar los scripts y las salidas se generan durante la ejecución.
 
 ## Datos
 
-Los datos no se redistribuyen y deben obtenerse desde NCBI GEO. Antes de ejecutar, crea las
-carpetas de datos dentro de la raíz del proyecto, de modo que la estructura quede así:
+Los datos no se redistribuyen en este repositorio; proceden de NCBI GEO. No es necesario
+descargarlos ni organizarlos manualmente: al ejecutar el primer script, se crean de forma
+automática las carpetas necesarias y se descarga la series matrix de GSE25066 desde GEO si no
+está presente; el segundo script descarga además la anotación GPL96. La descarga automática
+requiere conexión a internet.
+
+Tras la primera ejecución, la estructura de datos queda organizada así dentro de la raíz del
+proyecto:
 
 ```text
 tfm_gse25066/
@@ -52,10 +58,8 @@ tfm_gse25066/
 ```
 
 Todas las rutas que utilizan los scripts son relativas a la raíz del proyecto, por lo que la
-ubicación de esa carpeta en el ordenador es indiferente mientras se respete esta estructura
-interna y los scripts se ejecuten desde la raíz. El primer script puede descargar la series
-matrix si no existe localmente, y el segundo puede obtener la anotación GPL96; la descarga
-automática requiere conexión a internet.
+ubicación de esa carpeta en el ordenador es indiferente mientras los scripts se ejecuten desde
+la raíz.
 
 ## Requisitos
 
@@ -78,12 +82,13 @@ Rscript scripts/03b_run_predictive_evaluation.R
 Rscript scripts/03c_probe_stability_analysis.R
 ```
 
-Cada script genera sus salidas (metadatos procesados, informes, tablas y figuras) en
-carpetas locales que no se versionan.
+El primer script descarga los datos y prepara las carpetas; los siguientes generan los
+metadatos procesados, los informes, las tablas y las figuras en carpetas locales que no se
+versionan.
 
 ## Limitaciones
 
-Estudio retrospectivo y multicohorte con desbalance entre pCR y RD. La plataforma es un
+Estudio retrospectivo y multicohorte, con desbalance entre pCR y RD. La plataforma es un
 microarray a nivel de sonda con ambigüedades de anotación. La evaluación LOCO estima
 transportabilidad entre cohortes del mismo recurso, no una validación clínica externa
 independiente. Los resultados son exploratorios, no causales y no demuestran utilidad
