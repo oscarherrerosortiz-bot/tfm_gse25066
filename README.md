@@ -1,12 +1,12 @@
 # Predicción transcriptómica de respuesta patológica completa en GSE25066
 
-Repositorio asociado a un Trabajo Fin de Máster en Bioinformática y Análisis de Datos
+Repositorio asociado a mi Trabajo Fin de Máster en Bioinformática y Análisis de Datos
 Biomédicos. El proyecto estudia si la expresión transcriptómica tumoral permite predecir
 la respuesta patológica completa (`pCR`) frente a enfermedad residual (`RD`) tras
 quimioterapia neoadyuvante en cáncer de mama.
 
 Los datos proceden del estudio público
-[GSE25066](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE25066), medido con la
+[GSE25066](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE25066) medido con la
 plataforma Affymetrix Human Genome U133A Array
 [GPL96](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GPL96).
 
@@ -83,7 +83,7 @@ carpetas locales que no se versionan.
 
 ## Limitaciones
 
-Estudio retrospectivo y multicohorte, con desbalance entre pCR y RD. La plataforma es un
+Estudio retrospectivo y multicohorte con desbalance entre pCR y RD. La plataforma es un
 microarray a nivel de sonda con ambigüedades de anotación. La evaluación LOCO estima
 transportabilidad entre cohortes del mismo recurso, no una validación clínica externa
 independiente. Los resultados son exploratorios, no causales y no demuestran utilidad
